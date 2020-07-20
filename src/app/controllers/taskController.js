@@ -12,10 +12,11 @@ module.exports = {
   },
 
   async create(request, response) {
-    const { title, description, dueDate } = request.body;
+    console.log('request ===>', request.body);
+    const { title, description, value, dueDate } = request.body.params;
 
     try {
-      const task = await Task.create(request.body);
+      const task = await Task.create(request.body.params);
 
       return response.send({
         task
